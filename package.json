@@ -1,0 +1,68 @@
+{
+  "version": "0.1.2",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "bin": "dist/index.js",
+  "files": [
+    "dist",
+    "template"
+  ],
+  "engines": {
+    "node": ">=10"
+  },
+  "scripts": {
+    "start": "tsdx watch && echo '#!/usr/bin/env node\n' \"$(cat dist/index.js)\" > dist/index.js",
+    "build": "tsdx build && echo '#!/usr/bin/env node\n' \"$(cat dist/index.js)\" > dist/index.js",
+    "test": "tsdx test",
+    "lint": "tsdx lint",
+    "prepare": "tsdx build && echo '#!/usr/bin/env node\n' \"$(cat dist/index.js)\" > dist/index.js",
+    "size": "size-limit",
+    "analyze": "size-limit --why"
+  },
+  "peerDependencies": {},
+  "husky": {
+    "hooks": {
+      "pre-commit": "tsdx lint"
+    }
+  },
+  "prettier": {
+    "printWidth": 80,
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "es5"
+  },
+  "name": "aunt-page-init",
+  "author": {
+    "name": "yupeng12",
+    "email": "yupeng12@58.com"
+  },
+  "module": "dist/aunt-page-init.esm.js",
+  "size-limit": [
+    {
+      "path": "dist/aunt-page-init.cjs.production.min.js",
+      "limit": "10 KB"
+    },
+    {
+      "path": "dist/aunt-page-init.esm.js",
+      "limit": "10 KB"
+    }
+  ],
+  "devDependencies": {
+    "@size-limit/preset-small-lib": "^7.0.8",
+    "@types/fs-extra": "^9.0.13",
+    "husky": "^7.0.4",
+    "size-limit": "^7.0.8",
+    "tsdx": "^0.14.1",
+    "tslib": "^2.3.1",
+    "typescript": "^4.6.2"
+  },
+  "dependencies": {
+    "app-root-path": "^3.0.0",
+    "chalk": "^4.1.2",
+    "commander": "^9.0.0",
+    "fs-extra": "^10.0.1",
+    "inquirer": "^8.2.1",
+    "replace-in-file": "^6.3.2"
+  }
+}

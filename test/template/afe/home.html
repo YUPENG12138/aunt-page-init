@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=0">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="email=no">
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="default"/>
+    <meta name="referrer" content="unsafe-url"/>
+
+    <link rel="dns-prefetch" href="//img.58cdn.com.cn/">
+    <link rel="dns-prefetch" href="//c.58cdn.com.cn/">
+    <link rel="dns-prefetch" href="//j1.58cdn.com.cn/">
+
+    <link rel="icon" href="data:image/ico;base64,aWNv">
+    <title></title>
+    <script type="text/javascript">
+        ;
+        (function (e, t) {
+            function n() {
+                var t = r.getBoundingClientRect().width,
+                    n = t / 7.5;
+                r.style.fontSize = n + 'px', d.rem = e.rem = n;
+            }
+
+            var i, o = e.document,
+                r = o.documentElement,
+                a = 0,
+                d = t.flexible || (t.flexible = {}),
+                s = e.navigator.appVersion.match(/iphone/gi),
+                m = e.devicePixelRatio;
+            a = s ? m >= 3 && (!a || a >= 3) ? 3 : m >= 2 && (!a || a >= 2) ? 2 : 1 : 1, r.setAttribute('data-dpr', a), 'complete' === o.readyState ? o.body.style.fontSize = '12px' : o.addEventListener('DOMContentLoaded', function () {
+                o.body.style.fontSize = '12px';
+            }, !1);
+            var p = 'onorientationchange' in window ? 'orientationchange' : 'resize';
+            e.addEventListener(p, function () {
+                clearTimeout(i), i = setTimeout(n, 300);
+            }, !1), e.addEventListener('pageshow', function (e) {
+                e.persisted && (clearTimeout(i), i = setTimeout(n, 300));
+            }, !1), n(), d.dpr = e.dpr = a, d.refreshRem = n, d.rem2px = function (e) {
+                var t = parseFloat(e) * this.rem;
+                return 'string' == typeof e && e.match(/rem$/) && (t += 'px'), t;
+            }, d.px2rem = function (e) {
+                var t = parseFloat(e) / this.rem;
+                return 'string' == typeof e && e.match(/px$/) && (t += 'rem'), t;
+            };
+        })(window, window.lib || (window.lib = {}));
+    </script>
+    <link href="$StaticInfoTools.getCdnUrl('//c.58cdn.com.cn/git/lbg-fe/jiazheng-aunt-h5/css/home.css')"
+          rel="stylesheet">
+</head>
+<body>
+<div id="app"></div>
+<!-- 阿姨端app-jsBridege -->
+<script type="text/javascript" src="$StaticInfoTools.getCdnUrl('//j1.58cdn.com.cn/lbg/aunt-sdk/aunt.iife.js')"></script>
+<!--北斗-->
+<script type="text/javascript" src="$StaticInfoTools.getCdnUrl('//j1.58cdn.com.cn/beidou-sdk/browser/bundle.min.js')"></script>
+<!-- 业务js -->
+<script type="text/javascript" src="$StaticInfoTools.getCdnUrl('//j1.58cdn.com.cn/git/lbg-fe/jiazheng-aunt-h5/js/home.js')"></script>
+</body>
+</html>
