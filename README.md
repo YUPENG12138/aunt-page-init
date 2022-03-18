@@ -18,6 +18,7 @@ npx aunt-page-init init <页面名称>
 ### 运行 & 输入
 
 输入内容，包含页面中英文描述，英文用于生成文件夹、文件名称。中文用于生成备注、及页面title。
+
 ![运行 & 输入](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0ad5032514984f58bb1947ae8a3f44bb~tplv-k3u1fbpfcp-zoom-1.image)
 
 ## 生成内容
