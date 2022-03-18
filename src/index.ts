@@ -13,9 +13,9 @@ program
   .command('init <name>')
   .description('初始化新页面')
   .action(async (name: string) => {
-    consoleBlue(`检测项目【${name}】是否已存在...`);
+    consoleBlue(`检测页面【${name}】是否已存在...`);
 
-    // 1、检测当前项目是否已经存在
+    // 1、检测当前页面是否已经存在
     if (pageIsExist(getOperationPath(`${CONST.PAGE_PREFIX_DIR}${name}`))) {
       return consoleRed(`页面【${name}】已存在！重新命名`);
     }
@@ -32,7 +32,7 @@ program
         entry: 'src/pages/${name}/index.js',
         template: templateFile,
         filename: '${name}.html',
-        title: '家政职业规划',
+        title: '${title}',
         minify: false,
     },`;
 

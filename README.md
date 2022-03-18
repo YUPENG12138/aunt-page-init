@@ -1,103 +1,61 @@
-# TSDX User Guide
+# AUNT-PAGE-INIT
 
-Congrats! You just saved yourself hours of work by bootstrapping this project with TSDX. Let’s get you oriented with what’s here and how to use it.
+项目用于阿姨web，帮助快速初始化页面。
 
-> This TSDX setup is meant for developing libraries (not apps!) that can be published to NPM. If you’re looking to build a Node app, you could use `ts-node-dev`, plain `ts-node`, or simple `tsc`.
-
-> If you’re new to TypeScript, checkout [this handy cheatsheet](https://devhints.io/typescript)
-
-## Commands
-
-TSDX scaffolds your new library inside `/src`.
-
-To run TSDX, use:
+## 安装
 
 ```bash
-npm start # or yarn start
+npm i aunt-page-init -D
 ```
 
-This builds to `/dist` and runs the project in watch mode so any edits you save inside `src` causes a rebuild to `/dist`.
-
-To do a one-off build, use `npm run build` or `yarn build`.
-
-To run tests, use `npm test` or `yarn test`.
-
-## Configuration
-
-Code quality is set up for you with `prettier`, `husky`, and `lint-staged`. Adjust the respective fields in `package.json` accordingly.
-
-### Jest
-
-Jest tests are set up to run with `npm test` or `yarn test`.
-
-### Bundle Analysis
-
-[`size-limit`](https://github.com/ai/size-limit) is set up to calculate the real cost of your library with `npm run size` and visualize the bundle with `npm run analyze`.
-
-#### Setup Files
-
-This is the folder structure we set up for you:
-
-```txt
-/src
-  index.tsx       # EDIT THIS
-/test
-  blah.test.tsx   # EDIT THIS
-.gitignore
-package.json
-README.md         # EDIT THIS
-tsconfig.json
+## 使用
+```
+npx aunt-page-init init <页面名称>
 ```
 
-### Rollup
+## 流程演示
 
-TSDX uses [Rollup](https://rollupjs.org) as a bundler and generates multiple rollup configs for various module formats and build settings. See [Optimizations](#optimizations) for details.
+### 运行 & 输入
 
-### TypeScript
+输入内容，包含页面中英文描述，英文用于生成文件夹、文件名称。中文用于生成备注、及页面title。
+![运行 & 输入](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0ad5032514984f58bb1947ae8a3f44bb~tplv-k3u1fbpfcp-zoom-1.image)
 
-`tsconfig.json` is set up to interpret `dom` and `esnext` types, as well as `react` for `jsx`. Adjust according to your needs.
+## 生成内容
 
-## Continuous Integration
+### 内容生成概述
 
-### GitHub Actions
-
-Two actions are added by default:
-
-- `main` which installs deps w/ cache, lints, tests, and builds on all pushes against a Node and OS matrix
-- `size` which comments cost comparison of your library on every pull request using [`size-limit`](https://github.com/ai/size-limit)
-
-## Optimizations
-
-Please see the main `tsdx` [optimizations docs](https://github.com/palmerhq/tsdx#optimizations). In particular, know that you can take advantage of development-only optimizations:
-
-```js
-// ./types/index.d.ts
-declare var __DEV__: boolean;
-
-// inside your code...
-if (__DEV__) {
-  console.log('foo');
-}
+新生成三个文件:
 ```
+src/pages/<页面名称>/App.vue
+src/pages/<页面名称>/index.js
+template/afe/<页面名称>.html
+```
+追加内容两个文件:
+```
+config/getPages.js
+src/configs/page.js
+```
+![image.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/df767506a2f44b838c505bad7fb84fca~tplv-k3u1fbpfcp-zoom-1.image)
 
-You can also choose to install and use [invariant](https://github.com/palmerhq/tsdx#invariant) and [warning](https://github.com/palmerhq/tsdx#warning) functions.
+### 内容生成详述
 
-## Module Formats
+`src/pages/<页面名称>/App.vue`
 
-CJS, ESModules, and UMD module formats are supported.
+![image.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5ea11f57142b4e3abcc7c0a6303fe753~tplv-k3u1fbpfcp-zoom-1.image)
 
-The appropriate paths are configured in `package.json` and `dist/index.js` accordingly. Please report if any issues are found.
+`src/pages/<页面名称>/index.js`
 
-## Named Exports
+![image.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e5e5519354054f43b97b68460bc7a640~tplv-k3u1fbpfcp-zoom-1.image)
 
-Per Palmer Group guidelines, [always use named exports.](https://github.com/palmerhq/typescript#exports) Code split inside your React app instead of your React library.
+`template/afe/<页面名称>.html`
 
-## Including Styles
+![image.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b3cf51db7ed84b418bde99dc570cfd54~tplv-k3u1fbpfcp-zoom-1.image)
 
-There are many ways to ship styles, including with CSS-in-JS. TSDX has no opinion on this, configure how you like.
+`config/getPages.js`
 
-For vanilla CSS, you can include it at the root directory and add it to the `files` section in your `package.json`, so that it can be imported separately by your users and run through their bundler's loader.
+![image.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b5c2adf215344455a0e0e2e796591d2e~tplv-k3u1fbpfcp-zoom-1.image)
 
-## Publishing to NPM
+`src/configs/page.js`
 
-We recommend using [np](https://github.com/sindresorhus/np).
+![image.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1ef496060f6243928336ccadcf7c9022~tplv-k3u1fbpfcp-zoom-1.image)
+
